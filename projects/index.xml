@@ -1,18 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Projects on Barry Fogarty - Certified Umbraco Developer</title>
+    <title>Projects on Barry Fogarty - Certified Umbraco Developer Cornwall, Plymouth &amp; Bristol</title>
     <link>https://barryfogarty.com/projects/</link>
-    <description>Recent content in Projects on Barry Fogarty - Certified Umbraco Developer</description>
+    <description>Recent content in Projects on Barry Fogarty - Certified Umbraco Developer Cornwall, Plymouth &amp; Bristol</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Wed, 26 Feb 2020 19:19:15 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 19 Apr 2020 19:19:15 +0000</lastBuildDate>
     
 	<atom:link href="https://barryfogarty.com/projects/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Fed by Abel &amp; Cole</title>
+      <title>Curzon Artificial Eye Case Study: Barry Fogarty</title>
+      <link>https://barryfogarty.com/projects/curzon/</link>
+      <pubDate>Sun, 19 Apr 2020 19:19:15 +0000</pubDate>
+      
+      <guid>https://barryfogarty.com/projects/curzon/</guid>
+      <description>My client, Dare West, was engaged by Curzon to build a highly engaging listing site for their cinema and on-demand streaming services, and a CMS capable of wrangling huge amounts of data in a flexible and intuitive way. They were particularly concerned with delivering an intuitive system for their content editors to keep the website updated. I was brought on to the project with this in mind - to improve and extend the way the content was managed in the CMS.</description>
+    </item>
+    
+    <item>
+      <title>Fed by Abel &amp; Cole Case Study: Barry Fogarty</title>
       <link>https://barryfogarty.com/projects/fed/</link>
       <pubDate>Wed, 26 Feb 2020 19:19:15 +0000</pubDate>
       
