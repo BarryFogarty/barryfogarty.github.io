@@ -9,25 +9,80 @@
 		
 		
 		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-		<link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script>
+      
+      function onSubmit(token) {
+        var form = $("#contact-form");
+        var loading = $("#contact-form-loading");
+        var error = $("#contact-form-error");
+
+        $.ajax({
+          url: form.attr('action'),
+          method: "POST",
+          data: form.serialize(),
+          dataType: "json",
+          success: function (data) {
+            if (data.success) {
+               
+              loading.fadeToggle("fast", function() {
+                $("#contact-form-thank-you").fadeToggle("fast")
+              });
+            } else {
+               
+              console.log(data);
+              loading.fadeToggle("fast", function() {
+               error.fadeToggle("fast")
+              });
+            }
+          },
+          error: function () {
+             
+            loading.fadeToggle("fast", function() {
+              error.fadeToggle("fast")
+            });
+          }
+        });
+      }
+
+      
+      function validate(event) {
+        event.preventDefault();
+        var form = document.querySelector("#contact-form");
+        if (form.reportValidity()) {
+          
+          $("#form-container").fadeToggle("fast", function(){
+            $("#contact-form-loading").fadeToggle("fast")
+          });
+          grecaptcha.execute();
+        }
+      }
+
+      
+      function onload() {
+        var element = document.getElementById("submit");
+        element.onclick = validate;
+      }
+    </script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 	</head>
 	<body>
 
 		
-			<div id="header">
+    <div id="header">
+      <div class="top">
+        
+        <div id="logo">
+          <a href="/">
+            <span class="image avatar48"><img src="/img/avatar.jpg" alt="Barry Fogarty - Profile Photo" /></span>
+            <h1 id="title">Barry Fogarty</h1>
+            <p>Certified Umbraco Developer</p>
+          </a>
+        </div>
 
-				<div class="top">
-
-					
-						<div id="logo">
-							<span class="image avatar48"><img src="/img/avatar.jpg" alt="Barry Fogarty - Profile Photo" /></span>
-							<h1 id="title">Barry Fogarty</h1>
-							<p>Certified Umbraco Developer</p>
-						</div>
-
-					
-						<nav id="nav">
-							
+        
+        <nav id="nav">
+          
 	<ul>
     <li><a href="/#top" id="top-link" class="skel-layers-ignoreHref"><span class="icon fa-home">Intro</span></a></li>
     <li><a href="/#portfolio" id="portfolio-link" class="skel-layers-ignoreHref"><span class="icon fa-th">Portfolio</span></a></li>
@@ -35,32 +90,30 @@
     <li><a href="/#contact" id="contact-link" class="skel-layers-ignoreHref"><span class="icon fa-envelope">Contact</span></a></li>
 </ul>	
 
-						</nav>
+        </nav>
+      </div>
 
-				</div>
+      <div class="bottom">
+        
+        <ul class="icons">
+            
+              <li><a href="https://www.linkedin.com/in/barryfogarty" class="icon fa-linkedin" target="_blank"><span class="label">linkedin</span></a></li>
+            
+              <li><a href="https://twitter.com/barryfogarty" class="icon fa-twitter" target="_blank"><span class="label">twitter</span></a></li>
+            
+              <li><a href="https://github.com/BarryFogarty" class="icon fa-github" target="_blank"><span class="label">github</span></a></li>
+            
+              <li><a href="mailto:hi@barryfogarty.com" class="icon fa-envelope" target="_blank"><span class="label">email</span></a></li>
+            
+        </ul>
+      </div>
 
-				<div class="bottom">
-
-					
-						<ul class="icons">
-              			
-              				<li><a href="https://twitter.com/barryfogarty" class="icon fa-twitter" target="_blank"><span class="label">twitter</span></a></li>
-              			
-              				<li><a href="https://github.com/BarryFogarty" class="icon fa-github" target="_blank"><span class="label">github</span></a></li>
-              			
-              				<li><a href="https://www.linkedin.com/in/barryfogarty/" class="icon fa-linkedin" target="_blank"><span class="label">linkedin</span></a></li>
-              			
-              				<li><a href="mailto:hi@barryfogarty.com" class="icon fa-envelope" target="_blank"><span class="label">email</span></a></li>
-              			
-						</ul>
-				</div>
-
-			</div>
+    </div>
 
 		
-			<div id="main">
+    <div id="main">
 
-				
+      
 	<section id="contact">
 		<div class="container">
 
@@ -74,41 +127,38 @@
 		</div>
 	</section>
 
-				
-				
+      
+      
 	
 
 
-			</div>
+    </div>
 
 		
-			<div id="footer">
+    <div id="footer">
 
-				
-					<ul class="copyright">
-						<li>&copy; Barry Fogarty 2020.</li>
-					</ul>
+      
+      <ul class="copyright">
+        <li>&copy; Barry Fogarty 2021</li>
+      </ul>
 
-			</div>
+    </div>
 
-		
-			<script src="/js/jquery.min.js"></script>
-			<script src="/js/jquery.scrolly.min.js"></script>
-			<script src="/js/jquery.scrollzer.min.js"></script>
-			<script src="/js/skel.min.js"></script>
-			<script src="/js/util.js"></script>
-			
-			<script src="/js/main.js"></script>
-			
-			
-			<script async src="https://www.googletagmanager.com/gtag/js?id=UA-17722719-1"></script>
-			<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
-			gtag('js', new Date());
-
-			gtag('config', 'UA-17722719-1');
-			</script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/jquery.scrollzer.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    
+    <script src="/js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js" async defer></script>
+    <script src="https://www.googletagmanager.com/gtag/js?id=UA-17722719-1" async defer></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-17722719-1');
+    </script>
 
 	</body>
 </html>
